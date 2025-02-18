@@ -1,60 +1,89 @@
 using PetService as service from '../../../srv/cat-service';
+
 annotate service.Owner with @(
-    UI.FieldGroup #GeneratedGroup : {
-        $Type : 'UI.FieldGroupType',
+    UI.FieldGroup #HeaderGroup : {
+        $Type: 'UI.FieldGroupType',
         Data : [
             {
-                $Type : 'UI.DataField',
-                Label : 'ID',
-                Value : ID,
+                $Type: 'UI.DataField',
+                Label: '{i18n>Owner_FirstName}',
+                Value: firstName,
             },
             {
-                $Type : 'UI.DataField',
-                Label : 'address',
-                Value : address,
+                $Type: 'UI.DataField',
+                Label: '{i18n>Owner_LastName}',
+                Value: lastName,
             },
             {
-                $Type : 'UI.DataField',
-                Label : 'city',
-                Value : city,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'telephone',
-                Value : telephone,
+                $Type: 'UI.DataField',
+                Label: '{i18n>Owner_Telephone}',
+                Value: telephone,
             },
         ],
     },
-    UI.Facets : [
+    UI.FieldGroup #AddressGroup: {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Label: '{i18n>Owner_FirstName}',
+                Value: firstName,
+            },
+            {
+                $Type: 'UI.DataField',
+                Label: '{i18n>Owner_LastName}',
+                Value: lastName,
+            },
+            {
+                $Type: 'UI.DataField',
+                Label: '{i18n>Owner_Telephone}',
+                Value: telephone,
+            },
+        ],
+    },
+    UI.Facets                  : [
         {
             $Type : 'UI.ReferenceFacet',
-            ID : 'GeneratedFacet1',
+            ID    : 'GeneratedFacet1',
             Label : 'General Information',
-            Target : '@UI.FieldGroup#GeneratedGroup',
+            Target: '@UI.FieldGroup#HeaderGroup',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>Pets}',
+            Target: 'pets/@UI.LineItem'
         },
     ],
-    UI.LineItem : [
+    UI.LineItem                : [
         {
-            $Type : 'UI.DataField',
-            Label : 'ID',
-            Value : ID,
+            $Type: 'UI.DataField',
+            Label: 'ID',
+            Value: ID,
         },
         {
-            $Type : 'UI.DataField',
-            Label : 'address',
-            Value : address,
+            $Type: 'UI.DataField',
+            Label: '{i18n>Owner_FirstName}',
+            Value: firstName,
         },
         {
-            $Type : 'UI.DataField',
-            Label : 'city',
-            Value : city,
+            $Type: 'UI.DataField',
+            Label: '{i18n>Owner_LastName}',
+            Value: lastName,
         },
         {
-            $Type : 'UI.DataField',
-            Label : 'telephone',
-            Value : telephone,
+            $Type: 'UI.DataField',
+            Label: '{i18n>Owner_Telephone}',
+            Value: telephone,
         },
     ],
 );
 
-annotate service.Owner with { ID @Core.Computed; }
+annotate service.Pet with @(UI: {
+    Identification : [{Value: name}],
+    SelectionFields: [name],
+    LineItem       : [{
+        Value: name,
+        Label: '{i18n>Pet_Name}'
+    }, ]
+});
+
