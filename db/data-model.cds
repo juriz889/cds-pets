@@ -1,7 +1,7 @@
 namespace de.zjz.pets;
 
 entity Owner {
-  key ID        : Integer;
+  key ID        : UUID;
       address   : String;
       city      : String;
       telephone : String;
@@ -10,7 +10,7 @@ entity Owner {
 }
 
 entity Pet {
-  key ID        : Integer;
+  key ID        : UUID;
       owner     : Association to Owner;
       birthDate : Date;
       name      : String;
@@ -19,12 +19,12 @@ entity Pet {
 }
  
 entity PetType {
-  key ID   : Integer;
+  key ID   : UUID;
       type : localized String;
 }
 
 entity Visit {
-  key ID          : Integer;
+  key ID          : UUID;
       visitDate   : Date;
       description : String;
 }

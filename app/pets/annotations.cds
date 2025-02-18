@@ -1,4 +1,4 @@
-using CatalogService as service from '../../srv/cat-service';
+using PetService as service from '../../srv/cat-service';
 annotate service.Owner with @(
     UI.FieldGroup #GeneratedGroup : {
         $Type : 'UI.FieldGroupType',
@@ -57,3 +57,4 @@ annotate service.Owner with @(
     ],
 );
 
+annotate service.Owner with { ID @Core.Computed; }

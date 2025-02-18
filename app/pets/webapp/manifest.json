@@ -1,7 +1,7 @@
 {
   "_version": "1.65.0",
   "sap.app": {
-    "id": "de.zjz.pets",
+    "id": "pets",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -17,7 +17,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v4/CatalogService/",
+        "uri": "/odata/v4/v1/petservice/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -73,7 +73,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "de.zjz.pets.i18n.i18n"
+          "bundleName": "pets.i18n.i18n"
         }
       },
       "": {
