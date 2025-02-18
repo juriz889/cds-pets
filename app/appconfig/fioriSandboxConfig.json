@@ -1,53 +1,74 @@
 {
-    "services": {
-      "LaunchPage": {
-        "adapter": {
-          "config": {
-            "catalogs": [],
-            "groups": [
-              {
-                "id": "Administration",
-                "title": "Administration",
-                "isPreset": true,
-                "isVisible": true,
-                "isGroupLocked": false,
-                "tiles": [
-                  {
-                    "id": "ManageOwners",
-                    "tileType": "sap.ushell.ui.tile.StaticTile",
-                    "properties": {
-                      "title": "Manage Owners",
-                      "targetURL": "#Owners-manage"
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      },
-      "NavTargetResolution": {
+  "services": {
+    "LaunchPage": {
+      "adapter": {
         "config": {
-          "enableClientSideTargetResolution": true
-        }
-      },
-      "ClientSideTargetResolution": {
-        "adapter": {
-          "config": {
-            "inbounds": {
-              "ManageOwners": {
-                "semanticObject": "Owners",
-                "action": "manage",
-                "title": "Manage Owners",
-                "signature": {
-                  "parameters": {},
-                  "additionalParameters": "allowed"
+          "catalogs": [],
+          "groups": [
+            {
+              "id": "Administration",
+              "title": "Administration",
+              "isPreset": true,
+              "isVisible": true,
+              "isGroupLocked": false,
+              "tiles": [
+                {
+                  "id": "ManageOwners",
+                  "tileType": "sap.ushell.ui.tile.StaticTile",
+                  "properties": {
+                    "title": "Manage Owners",
+                    "targetURL": "#Owners-manage"
+                  }
                 },
-                "resolutionResult": {
-                  "applicationType": "SAPUI5",
-                  "additionalInformation": "SAPUI5.Component=pets",
-                  "url": "/pets/manage_owners/webapp"
+                {
+                  "id": "ManagePets",
+                  "tileType": "sap.ushell.ui.tile.StaticTile",
+                  "properties": {
+                    "title": "Manage Pets",
+                    "targetURL": "#Pets-manage"
+                  }
                 }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "NavTargetResolution": {
+      "config": {
+        "enableClientSideTargetResolution": true
+      }
+    },
+    "ClientSideTargetResolution": {
+      "adapter": {
+        "config": {
+          "inbounds": {
+            "ManageOwners": {
+              "semanticObject": "Owners",
+              "action": "manage",
+              "title": "Manage Owners",
+              "signature": {
+                "parameters": {},
+                "additionalParameters": "allowed"
+              },
+              "resolutionResult": {
+                "applicationType": "SAPUI5",
+                "additionalInformation": "SAPUI5.Component=pets",
+                "url": "/pets/manage_owners/webapp"
+              }
+            },
+            "ManagePets": {
+              "semanticObject": "Pets",
+              "action": "manage",
+              "title": "Manage Pets",
+              "signature": {
+                "parameters": {},
+                "additionalParameters": "allowed"
+              },
+              "resolutionResult": {
+                "applicationType": "SAPUI5",
+                "additionalInformation": "SAPUI5.Component=pets",
+                "url": "/pets/manage_pets/webapp"
               }
             }
           }
@@ -55,4 +76,4 @@
       }
     }
   }
-  
+}

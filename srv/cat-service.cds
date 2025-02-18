@@ -8,5 +8,5 @@ service PetService {
     entity PetType as projection on my.PetType;
 }
 
-annotate PetService.Pet with @odata.draft.enabled;
 annotate PetService.Owner with @odata.draft.enabled;
+annotate PetService.Pet with @odata.draft.enabled;

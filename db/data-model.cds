@@ -19,12 +19,13 @@ entity Address {
 }
 
 entity Pet {
-  key ID        : UUID;
-      owner     : Association to Owner;
-      birthDate : Date;
-      name      : String;
-      type      : Association to PetType;
-      visits    : Association to many Visit;
+  key ID          : UUID;
+      owner       : Association to Owner;
+      birthDate   : Date;
+      name        : String;
+      description : String;
+      type        : Association to PetType;
+      visits      : Association to many Visit;
 }
 
 entity PetType {

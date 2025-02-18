@@ -1,7 +1,7 @@
 {
   "_version": "1.65.0",
   "sap.app": {
-    "id": "manageowners",
+    "id": "managepets",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.16.3",
-      "toolsId": "1e866acf-fe3b-4a75-851c-c5401da53ae5"
+      "toolsId": "56bc0e06-ce19-44d3-a93a-094935a2c101"
     },
     "dataSources": {
       "mainService": {
@@ -22,19 +22,6 @@
         "settings": {
           "annotations": [],
           "odataVersion": "4.0"
-        }
-      }
-    },
-    "crossNavigation": {
-      "inbounds": {
-        "pets-view": {
-          "semanticObject": "pets",
-          "action": "view",
-          "title": "{{flpTitle}}",
-          "signature": {
-            "parameters": {},
-            "additionalParameters": "allowed"
-          }
         }
       }
     }
@@ -73,7 +60,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "manageowners.i18n.i18n"
+          "bundleName": "managepets.i18n.i18n"
         }
       },
       "": {
@@ -98,33 +85,33 @@
       "routes": [
         {
           "pattern": ":?query:",
-          "name": "OwnerList",
-          "target": "OwnerList"
+          "name": "PetList",
+          "target": "PetList"
         },
         {
-          "pattern": "Owner({key}):?query:",
-          "name": "OwnerObjectPage",
-          "target": "OwnerObjectPage"
-        },
-        {
-          "pattern": "Owner({key})/pets({key2}):?query:",
+          "pattern": "Pet({key}):?query:",
           "name": "PetObjectPage",
           "target": "PetObjectPage"
+        },
+        {
+          "pattern": "Pet({key})/visits({key2}):?query:",
+          "name": "VisitObjectPage",
+          "target": "VisitObjectPage"
         }
       ],
       "targets": {
-        "OwnerList": {
+        "PetList": {
           "type": "Component",
-          "id": "OwnerList",
+          "id": "PetList",
           "name": "sap.fe.templates.ListReport",
           "options": {
             "settings": {
-              "contextPath": "/Owner",
+              "contextPath": "/Pet",
               "variantManagement": "Page",
               "navigation": {
-                "Owner": {
+                "Pet": {
                   "detail": {
-                    "route": "OwnerObjectPage"
+                    "route": "PetObjectPage"
                   }
                 }
               },
@@ -138,24 +125,6 @@
             }
           }
         },
-        "OwnerObjectPage": {
-          "type": "Component",
-          "id": "OwnerObjectPage",
-          "name": "sap.fe.templates.ObjectPage",
-          "options": {
-            "settings": {
-              "editableHeaderContent": false,
-              "contextPath": "/Owner",
-              "navigation": {
-                "pets": {
-                  "detail": {
-                    "route": "PetObjectPage"
-                  }
-                }
-              }
-            }
-          }
-        },
         "PetObjectPage": {
           "type": "Component",
           "id": "PetObjectPage",
@@ -163,7 +132,25 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/Owner/pets"
+              "contextPath": "/Pet",
+              "navigation": {
+                "visits": {
+                  "detail": {
+                    "route": "VisitObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "VisitObjectPage": {
+          "type": "Component",
+          "id": "VisitObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Pet/visits"
             }
           }
         }
