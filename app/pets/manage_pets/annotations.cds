@@ -30,35 +30,7 @@ annotate service.Pet with @(
     ]
 );
 
-annotate service.Pet with {
-    owner @Common.ValueList : {
-        $Type : 'Common.ValueListType',
-        CollectionPath : 'Owner',
-        Parameters : [
-            {
-                $Type : 'Common.ValueListParameterInOut',
-                LocalDataProperty : owner_ID,
-                ValueListProperty : 'ID',
-            },
-        ],
-    }
-};
 
-annotate service.Pet with {
-    type @Common.ValueList : {
-        $Type : 'Common.ValueListType',
-        CollectionPath : 'PetType',
-        Parameters : [
-            {
-                $Type : 'Common.ValueListParameterInOut',
-                LocalDataProperty : type_ID,
-                ValueListProperty : 'ID',
-            },
-            {
-                $Type : 'Common.ValueListParameterDisplayOnly',
-                ValueListProperty : 'type',
-            },
-        ],
-    }
+annotate service.Pet with @Capabilities.InsertRestrictions: {
+    Insertable: true
 };
-

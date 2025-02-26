@@ -152,6 +152,19 @@
                     "route": "PetObjectPage"
                   }
                 }
+              },
+              "controlConfiguration": {
+                "pets/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "actions": {
+                    "Add": {
+                      "press": "manageowners.ext.controller.AddPetToOwner.addPetToOwner",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "{i18n>Add_Pet}"
+                    }
+                  }
+                }
               }
             }
           }
